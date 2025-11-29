@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免费公共DNS - DNS提供商大全</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">🌐 DNS导航</a>
+
+            <ul class="nav-menu">
+                <li><a href="#providers" class="nav-link">DNS提供商</a></li>
+                <li><a href="#comparison" class="nav-link">对比分析</a></li>
+                <li><a href="#usage" class="nav-link">使用指南</a></li>
+                <li><a href="#faq" class="nav-link">常见问题</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <div class="nav-search">
+                    <input type="text" class="search-input" placeholder="搜索DNS提供商..." id="searchInput">
+                    <button class="search-btn" onclick="performSearch()">🔍</button>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>🌐 免费公共DNS大全</h1>
+                <p>汇集全球最受欢迎的公共DNS服务，提升网络速度与安全性</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary"
+                        onclick="document.getElementById('providers').scrollIntoView()">浏览DNS</button>
+                    <button class="btn btn-secondary"
+                        onclick="document.getElementById('usage').scrollIntoView()">学习使用</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- DNS Providers Section -->
+        <section id="providers" class="section-id">
+            <div class="container">
+                <h2>🔗 DNS提供商</h2>
+                <div class="dns-grid">
+                    <!-- Google DNS -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇺🇸</span> Google DNS</h3>
+                        <p class="description">Google提供的公共DNS服务，全球可用，速度快，隐私保护好。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">8.8.8.8 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('8.8.8.8')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">8.8.4.4 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('8.8.4.4')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2001:4860:4860::8888 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2001:4860:4860::8888')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2001:4860:4860::8844 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2001:4860:4860::8844')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">可靠性高</div>
+                            <div class="feature-item">全球节点覆盖</div>
+                            <div class="feature-item">支持IPv6</div>
+                        </div>
+                    </div>
+
+                    <!-- Cloudflare DNS -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇺🇸</span> Cloudflare DNS</h3>
+                        <p class="description">速度快，隐私保护严格，支持DoH和DoT加密协议。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">1.1.1.1 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('1.1.1.1')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">1.0.0.1 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('1.0.0.1')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2606:4700:4700::1111 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2606:4700:4700::1111')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2606:4700:4700::1001 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2606:4700:4700::1001')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item"><span class="badge badge-privacy">隐私</span>隐私保护最强</div>
+                            <div class="feature-item">速度最快</div>
+                            <div class="feature-item">支持加密协议</div>
+                        </div>
+                    </div>
+
+                    <!-- Quad9 DNS -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇺🇸</span> Quad9 DNS</h3>
+                        <p class="description">安全DNS服务，自动过滤恶意网站和钓鱼网站。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">9.9.9.9 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('9.9.9.9')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">149.112.112.112 <span
+                                        class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('149.112.112.112')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2620:fe::fe <span class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2620:fe::fe')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2620:fe::9 <span class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2620:fe::9')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item"><span class="badge badge-safe">安全</span>自动过滤恶意网站</div>
+                            <div class="feature-item">保护免受威胁</div>
+                            <div class="feature-item">支持加密</div>
+                        </div>
+                    </div>
+
+                    <!-- OpenDNS -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇺🇸</span> OpenDNS</h3>
+                        <p class="description">Cisco旗下的DNS服务，提供内容过滤和网络安全功能。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">208.67.222.222 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('208.67.222.222')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">208.67.220.220 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('208.67.220.220')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2620:119:35::35 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2620:119:35::35')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2620:119:53::53 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2620:119:53::53')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">内容过滤功能</div>
+                            <div class="feature-item">家庭安全模式</div>
+                            <div class="feature-item">可自定义规则</div>
+                        </div>
+                    </div>
+
+                    <!-- Cloudflare Families -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇺🇸</span> Cloudflare Families</h3>
+                        <p class="description">专为家庭用户设计，提供恶意网站过滤和成人内容过滤。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">1.1.1.2 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('1.1.1.2')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">1.0.0.2 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('1.0.0.2')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2606:4700:4700::1112 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2606:4700:4700::1112')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2606:4700:4700::1002 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2606:4700:4700::1002')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item"><span class="badge badge-adblock">过滤</span>成人内容过滤</div>
+                            <div class="feature-item">恶意网站拦截</div>
+                            <div class="feature-item">适合家庭使用</div>
+                        </div>
+                    </div>
+
+                    <!-- Alibaba Public DNS (阿里) -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇨🇳</span> 阿里 Public DNS</h3>
+                        <p class="description">阿里巴巴提供的公共DNS，在中国速度快。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">223.5.5.5 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('223.5.5.5')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">223.6.6.6 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('223.6.6.6')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2400:3200::1 <span class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2400:3200::1')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2400:3200:baba::1 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2400:3200:baba::1')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item"><span class="badge badge-fast">快速</span>中国优化</div>
+                            <div class="feature-item">覆盖广泛</div>
+                            <div class="feature-item">速度快</div>
+                        </div>
+                    </div>
+
+                    <!-- Tencent DNS (腾讯) -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇨🇳</span> 腾讯 Public DNS</h3>
+                        <p class="description">腾讯提供的公共DNS服务，面向全球用户。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">119.29.29.29 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('119.29.29.29')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">119.28.28.28 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('119.28.28.28')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2402:4e00:: <span class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2402:4e00::')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2402:4e00:1::1 <span class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2402:4e00:1::1')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">中国覆盖广</div>
+                            <div class="feature-item">可靠性强</div>
+                            <div class="feature-item">性能稳定</div>
+                        </div>
+                    </div>
+
+                    <!-- Baidu DNS (百度) -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇨🇳</span> 百度 Public DNS</h3>
+                        <p class="description">百度提供的公共DNS服务，专注于中国用户体验。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">180.76.76.76 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('180.76.76.76')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2400:da00::6666 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2400:da00::6666')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">百度生态</div>
+                            <div class="feature-item">中国优化</div>
+                            <div class="feature-item">稳定可靠</div>
+                        </div>
+                    </div>
+
+                    <!-- Volcano Engine DNS (火山引擎) -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇨🇳</span> 火山引擎 DNS</h3>
+                        <p class="description">字节跳动旗下的火山引擎提供的TrafficRoute DNS套件，专为中国用户优化。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">180.184.1.1 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('180.184.1.1')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">180.184.2.2 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('180.184.2.2')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">字节跳动生态</div>
+                            <div class="feature-item">中国优化</div>
+                            <div class="feature-item">高性能</div>
+                        </div>
+                    </div>
+
+                    <!-- CNNIC SDNS (中国互联网中心) -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇨🇳</span> 114 DNS</h3>
+                        <p class="description">CNNIC提供的公共DNS，具有强大的安全防护功能。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">114.114.114.114 <span
+                                        class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('114.114.114.114')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">114.114.115.115 <span
+                                        class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('114.114.115.115')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">速度快</div>
+                            <div class="feature-item">安全防护</div>
+                            <div class="feature-item">防止DNS污染</div>
+                        </div>
+                    </div>
+
+                    <!-- OpenDNS FamilyShield -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇺🇸</span> OpenDNS Family Shield</h3>
+                        <p class="description">OpenDNS家庭护盾，阻止恶意软件和成人内容。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">208.67.222.123 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('208.67.222.123')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">208.67.220.123 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('208.67.220.123')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2620:119:35::123 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2620:119:35::123')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2620:119:53::123 <span
+                                        class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2620:119:53::123')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">恶意软件过滤</div>
+                            <div class="feature-item">成人内容拦截</div>
+                            <div class="feature-item">家庭友好</div>
+                        </div>
+                    </div>
+
+                    <!-- Verisign Public DNS -->
+                    <div class="dns-card">
+                        <h3><span class="provider-flag">🇺🇸</span> Verisign DNS</h3>
+                        <p class="description">Verisign提供的公共DNS，可靠性高，是.com/.net域名注册机构。</p>
+                        <div class="dns-addresses">
+                            <div class="dns-address">
+                                <span class="address-ip">64.6.64.6 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('64.6.64.6')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">64.6.65.6 <span class="address-version">IPv4</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('64.6.65.6')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2620:74:4e::4e <span class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2620:74:4e::4e')">复制</button>
+                            </div>
+                            <div class="dns-address">
+                                <span class="address-ip">2620:74:4e::6 <span class="address-version">IPv6</span></span>
+                                <button class="copy-btn" onclick="copyToClipboard('2620:74:4e::6')">复制</button>
+                            </div>
+                        </div>
+                        <div class="features">
+                            <div class="feature-item">高度可靠</div>
+                            <div class="feature-item">权威机构</div>
+                            <div class="feature-item">支持IPv6</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="section-id">
+            <div class="container">
+                <h2>📊 DNS服务对比</h2>
+                <div class="comparison">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>DNS提供商</th>
+                                <th>IPv4地址</th>
+                                <th>IPv6地址</th>
+                                <th>隐私保护</th>
+                                <th>安全功能</th>
+                                <th>速度</th>
+                                <th>特点</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="highlight">Google DNS</span></td>
+                                <td>8.8.8.8</td>
+                                <td>2001:4860:4860::8888</td>
+                                <td>中等</td>
+                                <td>基础</td>
+                                <td>极快</td>
+                                <td>全球广泛支持</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Cloudflare DNS</span></td>
+                                <td>1.1.1.1</td>
+                                <td>2606:4700:4700::1111</td>
+                                <td>最强</td>
+                                <td>基础</td>
+                                <td>极快</td>
+                                <td>隐私第一</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Quad9</span></td>
+                                <td>9.9.9.9</td>
+                                <td>2620:fe::fe</td>
+                                <td>强</td>
+                                <td>恶意网站过滤</td>
+                                <td>快</td>
+                                <td>安全防护</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">OpenDNS</span></td>
+                                <td>208.67.222.222</td>
+                                <td>2620:119:35::35</td>
+                                <td>中等</td>
+                                <td>内容过滤</td>
+                                <td>快</td>
+                                <td>可自定义</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Cloudflare Families</span></td>
+                                <td>1.1.1.2</td>
+                                <td>2606:4700:4700::1112</td>
+                                <td>最强</td>
+                                <td>内容过滤</td>
+                                <td>极快</td>
+                                <td>家庭保护</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">阿里 Public DNS</span></td>
+                                <td>223.5.5.5</td>
+                                <td>2400:3200::1</td>
+                                <td>中等</td>
+                                <td>基础</td>
+                                <td>中国极快</td>
+                                <td>中国优化</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">腾讯 Public DNS</span></td>
+                                <td>119.29.29.29</td>
+                                <td>2402:4e00::</td>
+                                <td>中等</td>
+                                <td>基础</td>
+                                <td>中国极快</td>
+                                <td>可靠稳定</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">百度 Public DNS</span></td>
+                                <td>180.76.76.76</td>
+                                <td>2400:da00::6666</td>
+                                <td>中等</td>
+                                <td>基础</td>
+                                <td>中国快</td>
+                                <td>百度生态</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">火山引擎 DNS</span></td>
+                                <td>180.184.1.1</td>
+                                <td>—</td>
+                                <td>中等</td>
+                                <td>基础</td>
+                                <td>中国快</td>
+                                <td>字节跳动生态</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">114 DNS</span></td>
+                                <td>114.114.114.114</td>
+                                <td>—</td>
+                                <td>中等</td>
+                                <td>DNS污染防护</td>
+                                <td>中国快</td>
+                                <td>防污染</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">OpenDNS Family Shield</span></td>
+                                <td>208.67.222.123</td>
+                                <td>2620:119:35::123</td>
+                                <td>中等</td>
+                                <td>家庭保护</td>
+                                <td>快</td>
+                                <td>成人内容拦截</td>
+                            </tr>
+                            <tr>
+                                <td><span class="highlight">Verisign DNS</span></td>
+                                <td>64.6.64.6</td>
+                                <td>2620:74:4e::4e</td>
+                                <td>中等</td>
+                                <td>基础</td>
+                                <td>快</td>
+                                <td>权威机构</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guide Section -->
+        <section id="usage" class="section-id">
+            <div class="container">
+                <h2>📚 使用指南</h2>
+                <div class="guide-container">
+                    <div class="guide-card">
+                        <h3><span class="guide-icon">🪟</span> Windows 10/11</h3>
+                        <p>设置 → 网络和互联网 → 更改适配器选项 → 右键网络连接 → 属性 → IPv4属性 → 使用以下DNS服务器地址 → 填入DNS地址</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3><span class="guide-icon">🍎</span> macOS</h3>
+                        <p>系统偏好设置 → 网络 → 高级 → DNS → 点击+号添加DNS地址</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3><span class="guide-icon">🐧</span> Linux</h3>
+                        <p>编辑 /etc/resolv.conf 或 /etc/netplan/01-netcfg.yaml 文件，添加 nameserver 8.8.8.8</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3><span class="guide-icon">📱</span> Android</h3>
+                        <p>设置 → 网络和互联网 → 高级 → 私有DNS → 输入DNS地址</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3><span class="guide-icon">🍏</span> iOS/iPadOS</h3>
+                        <p>设置 → Wi-Fi → 点击网络 → 配置DNS → 使用手动 → 添加DNS服务器</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3><span class="guide-icon">📡</span> 路由器配置</h3>
+                        <p>登录路由器管理界面 → 网络设置 → DNS设置 → 填入DNS地址即可让整个网络使用</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-id">
+            <div class="container">
+                <h2>❓ 常见问题</h2>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div class="guide-card" style="margin-bottom: 20px;">
+                        <h3>什么是DNS？</h3>
+                        <p>DNS（Domain Name System）是域名系统，它将域名（如 www.example.com）转换为IP地址，使您的设备能够连接到互联网上的网站和服务。</p>
+                    </div>
+
+                    <div class="guide-card" style="margin-bottom: 20px;">
+                        <h3>为什么要更改DNS？</h3>
+                        <p>更改DNS可以提升网络速度、改进隐私保护、避免DNS污染、获得更好的安全防护等优势。不同的DNS提供商有不同的特点，您可以根据需求选择。</p>
+                    </div>
+
+                    <div class="guide-card" style="margin-bottom: 20px;">
+                        <h3>IPv4和IPv6有什么区别？</h3>
+                        <p>IPv4是较早的互联网协议，使用32位地址（如 8.8.8.8）；IPv6是较新的协议，使用128位地址（如 2001:4860:4860::8888），支持更多地址。</p>
+                    </div>
+
+                    <div class="guide-card" style="margin-bottom: 20px;">
+                        <h3>如何检测DNS是否生效？</h3>
+                        <p>使用 nslookup 命令（Windows）或 dig 命令（Linux/Mac）查询DNS解析，或访问 DNS检测网站 查看您当前使用的DNS服务。</p>
+                    </div>
+
+                    <div class="guide-card">
+                        <h3>是否需要同时填入IPv4和IPv6？</h3>
+                        <p>如果您的网络支持IPv6，建议同时配置；如果不支持或不确定，只配置IPv4即可。许多系统允许配置两个IPv4地址和两个IPv6地址。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <!-- Footer -->
+    <footer>
+        <p>🌐 免费公共DNS导航 | 最后更新: 2024年11月</p>
+        <p>所有DNS服务均为免费公共服务 | <a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">隐私政策</a></p>
+        <p style="opacity: 0.7; margin-top: 15px;">提示：选择DNS需考虑地理位置、隐私需求和功能需求</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
